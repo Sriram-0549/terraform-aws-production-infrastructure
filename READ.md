@@ -1,36 +1,82 @@
 # Terraform AWS Production Infrastructure
 
-## Project Overview
+##  Project Overview
 
-This project demonstrates how to provision a production-style AWS infrastructure using Terraform with a modular architecture.
+This project demonstrates how to provision AWS infrastructure using Terraform with a modular architecture. The infrastructure is fully automated and deploys an EC2 instance running Nginx with a custom web page using User Data.
+
+---
 
 ## Technologies Used
 
 - Terraform
-- AWS
-- EC2
-- VPC
+- AWS EC2
+- AWS VPC
 - IAM
 - Security Groups
 - Nginx
 - Git
 - GitHub
+- Linux
 
-## Project Architecture
+---
+
+## rchitecture
 
 Internet
-    |
+|
 Internet Gateway
-    |
+|
 VPC
-    |
+|
 Public Subnet
-    |
-EC2 Instance
-    |
-Nginx Web Server
+|
+Security Group
+|
+EC2 (Amazon Linux 2023)
+|
+User Data
+|
+Nginx
+|
+Custom HTML Website
 
-## Features
+---
+
+## Project Structure
+
+```text
+terraform-aws-production-infrastructure/
+│
+├── modules/
+│   ├── ec2/
+│   ├── iam/
+│   └── network/
+│
+├── backend.tf
+├── local.tf
+├── main.tf
+├── outputs.tf
+├── provider.tf
+├── variables.tf
+├── README.md
+└── .gitignore
+```
+
+##  Deployment
+
+```bash
+terraform init
+terraform plan
+terraform apply
+```
+
+##  Destroy Infrastructure
+
+```bash
+terraform destroy
+```
+
+##  Features
 
 - Modular Terraform code
 - Custom VPC
@@ -41,46 +87,18 @@ Nginx Web Server
 - IAM Role
 - IAM Instance Profile
 - EC2 deployment
-- Automatic Nginx installation using User Data
+- Automatic Nginx installation
 - Custom HTML webpage deployment
 
-## Folder Structure
-
-terraform-aws-production-infrastructure/
-├── modules/
-│   ├── network/
-│   ├── ec2/
-│   └── iam/
-├── main.tf
-├── provider.tf
-├── variables.tf
-├── outputs.tf
-├── terraform.tfvars
-└── README.md
-
-## Deployment
-
-```bash
-terraform init
-terraform plan
-terraform apply
-```
-
-## Destroy Infrastructure
-
-```bash
-terraform destroy
-```
-
-## Output
+##  Output
 
 After deployment:
 
-- EC2 launches successfully.
-- Nginx installs automatically.
-- Custom webpage is accessible using the EC2 Public IP.
+- EC2 launches successfully
+- Nginx installs automatically
+- Custom web page is accessible through the EC2 Public IP
 
-## Author
+## 💻 Author
 
 **Sriram**
 
