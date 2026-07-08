@@ -20,7 +20,7 @@ This project demonstrates how to provision AWS infrastructure using Terraform wi
 
 ---
 
-## rchitecture
+## Architecture
 
 Internet
 |
